@@ -1,122 +1,113 @@
-# Setup
-You can setup this repository by following this manual
+# Task Manager
+This project is a Task Manager application that provides a web API for managing TODO items. It includes both a frontend and a backend component.
 
-You will also need to clone the frontend repository
+# Frontend Link Repo
+[ https://github.com/savio1-domi/task_manager ]
 
-    git clone git@github.com:savio1-domi/Task-Manager.git
-    cd Task-Manager
-    npm install
+# Get Started
+## Project Setup
+To set up the project, follow these steps:
 
-## Clone the repository
-    git clone git@github.com:savio1-domi/phase-3-sinatra-react-project.git
-Ensure the ruby gems are setup in your machine
+### 1. Frontend Setup
+   <li>Clone the frontend repository:</li>
+
+        git clone git@github.com:savio1-domi/task-manager.git
+
+   <li>Change directory  </li>
+
+        cd Task-Manager
+
+  <li>Install the required dependencies by running the following command in your terminal:</li>
+
+        npm install
+
+### 2. Backend Setup
+
+  <li>Clone the backend repository</li>
+
+       git clone git@github.com:savio1-domi/phase-3-sinatra-react-project.git
+
+  <li>Ensure the ruby gems are setup in your machine</li>
 
     bundle install
-Perform any pending database migrations
+
+   <li>Perform any pending database migrations</li>
 
     rake db:migrate
+
 ## Run the application
-rake start
-Open the application from your browser
+To run the application, execute the following command in the backend repository:
+
+    rake start
+
+Then, open the application from your browser
 http://localhost:9292
-Application
-This application is a simple web API that allows users to:
 
-  - Register a new account.
+## Features
+The Task Manager application provides the following features:
 
-  - Log in to existing account.
+- User Authentication: Users can register a new account and log in to an existing account.
+- TODO Management: Users can create, update, and delete TODO items.
+- TODO Filtering: Users can view all TODO items and filter them by status.
 
-  - Create TODO items.
+The backend API supports the following endpoints:
 
-  - Update individual TODO items.
+1. `/register`: Create a new user account.(POST request)
+      
+      Request Body:
 
-  - View all TODO items.
+        {
+          "name": "John Doe",
+          "email": "mail@mail.com",
+          "password": "12345678",
+          "confirm password": "12345678",
+          "phone_number": "0712345678"
+       }
 
-  - Filter TODO items by status.
+2. `/credentials`: Log in a user using email and password. (POST request)
 
-  - Delete a TODO item.
+   Request Body:
+
+        {
+         "email": "mail@mail.com",
+         "password": "12345678"
+        }
+
+3. `/post`: Add a new TODO item. (POST request)
+
+    Request Body:
+
+        {
+          "name": "Make Breakfast",
+          "description": "Prepare milk and cereal",
+          "category": "meal"
+        }
+
+4. `/all`: List all TODO items. (GET request)
+
+    Response Sample:
 
 
+        {
+          "data": [
+            {"id": 2, "name": "last", "description": "esgdh", "category_id": 2, "created_at": "2023-03-05T19:49:48.112Z", ...},
+            {"id": 1, "name": "first", "description": "sgdgf", "category_id": 1, "created_at": "2023-03-05T19:49:19.600Z", ...}
+          ],
+          "message": "SUCCESS"
+        }
 
-Sinatra backend API, where a user can:
+5. `/patch/:id`: Update an existing TODO. (PATCH request)
+6. `/delete/:id`: Delete a TODO item. (DELETE request)
 
-- **Create** a new todo
-- **Read** a list of all todos
-- **Update** an individual todo
-- **Delete** a todo
+## Contributing
 
-A `Todo` can be tagged with a `Category`, so that each todo _belongs to_ a
-category and each category _has many_ todos.
+If you would like to contribute to the project, follow these guidelines:
 
-## Getting Started
+* Report any issues or bugs by creating a new issue on the GitHub repository.
+* Submit feature requests or suggestions by creating a new issue on the GitHub repository.
+* Follow the development setup instructions in the repository's README.
+* Adhere to the coding conventions and guidelines specified in the repository.
+* Write clear commit messages and submit pull requests for review.
 
-### Backend Setup
-
-This repository has all the starter code needed to get a Sinatra backend up and
-running. [**Fork and clone**][fork link] this repository to get started. Then, run
-`bundle install` to install the gems.
-
-**Important**: Be sure you fork a copy of the repo into your GitHub account
-before cloning it. You can do this by using the link above or by clicking the
-"Octocat" button at the top of this page, then clicking "Fork" in the upper
-right corner of the repo page.
-
-[fork link]: https://github.com/learn-co-curriculum/phase-3-sinatra-react-project/fork
-
-The `app/controllers/application_controller.rb` file has an example GET route
-handler. Replace this route with routes for your project.
-
-You can start your server with:
-
-```console
-$ bundle exec rake server
-```
-
-This will run your server on port
-[http://localhost:9292](http://localhost:9292).
-ROUTES
-
-1. / - Presents a simple welcome message.
-
-2. /register - Create a new user account.
-
-## REQUEST BODY
-    {
-    "name": "John Doe",
-    "email": "mail@mail.com",
-    "password": "12345678",
-    "confirm password": "12345678",
-    "phone_number": "0712345678"
-    }
-
-3. /credentials - Log in a user using email and password.
-
-## REQUEST BODY
-    {
-    "email": "mail@mail.com",
-    "password": "12345678"
-    }
-
-4. /post - Add a new TODO item.
-
-## REQUEST BODY
-  {
-  "name": "Make Breakfast",
-  "description": "Prepare milk and cereal",
-  "category": "meak"
-  }
-
-5. /all - List all TODO items.
-
-## RESPONSE SAMPLE
-    {
-      [
-        {id: 2, name: 'last', description: 'esgdh', category_id: 2, created_at: '2023-03-05T19:49:48.112Z', …},
-
-        {id: 1, name: 'first', description: 'sgdgf', category_id: 1, created_at: '2023-03-05T19:49:19.600Z', …}
-      ],
-    "message": "SUCCESS"
-    }
-6. /patch/:id - Update an existing TODO.
-
-7. /delete/:id - Delete a TODO item.
+## License
+This project is licensed under the Learn.co Educational Content License. By contributing to this project, you agree to license your contributions under the same license.
