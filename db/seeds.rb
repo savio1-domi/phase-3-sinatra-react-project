@@ -1,6 +1,3 @@
-
- 
-
 require 'faker'
 puts "🌱 Seeding spices..."
 
