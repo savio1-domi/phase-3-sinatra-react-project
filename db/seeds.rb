@@ -30,8 +30,8 @@ Todo.create(
   category_id: Category.pluck(:id).sample,
 )
 Todo.create(
-  name: "Practice",
-  description: "Practice football for 2hours",
+  name: "Football exercise",
+  description: "Practice dribbling, defending and attacking for 2hours",
   category_id: Category.pluck(:id).sample,
 )
 Todo.create(
@@ -39,5 +39,21 @@ Todo.create(
   description: "Practice Baseball for 2hours",
   category_id: Category.pluck(:id).sample,
 )
+Todo.create(
+  name: "Music Lesson",
+  description: "Practice Piano for 3hours",
+  category_id: Category.pluck(:id).sample,
+)
+Todo.create(
+  name: "Coding Lesson",
+  description: "Learning Sinatra and Active Records for 3hours",
+  category_id: Category.pluck(:id).sample,
+)
+Todo.create(
+  name: "Coding Lesson",
+  description: "Learning Sinatra and Active Records for 3hours",
+  category_id: Category.pluck(:id).sample,
+)
+
 
 puts "✅ Done seeding!"
